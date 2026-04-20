@@ -1,0 +1,109 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f2f5;
+    color: #222;
+    min-height: 100vh;
+}
+
+/* ── NAV ── */
+nav {
+    background: #1a1a2e;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+nav .logo { color: #e94560; font-weight: 700; font-size: 1.2rem; text-decoration: none; }
+nav .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+nav .nav-links a { color: #ccc; text-decoration: none; font-size: .9rem; }
+nav .nav-links a:hover { color: #fff; }
+nav .nav-links .btn-logout {
+    background: #e94560; color: #fff; border: none;
+    padding: .35rem .9rem; border-radius: 6px;
+    cursor: pointer; font-size: .9rem;
+}
+
+/* ── CONTAINER ── */
+.container { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+
+/* ── CARDS ── */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    margin-bottom: 1.5rem;
+}
+.card h2 { margin-bottom: 1.2rem; color: #1a1a2e; font-size: 1.3rem; }
+
+/* ── FORMULÁRIOS ── */
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .35rem; color: #555; }
+.form-group input, .form-group select {
+    width: 100%; padding: .6rem .85rem;
+    border: 1px solid #ddd; border-radius: 7px;
+    font-size: .95rem; transition: border .2s;
+}
+.form-group input:focus, .form-group select:focus {
+    outline: none; border-color: #e94560;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media(max-width:600px){ .form-row { grid-template-columns: 1fr; } }
+
+/* ── BOTÕES ── */
+.btn {
+    display: inline-block; padding: .65rem 1.4rem;
+    border: none; border-radius: 7px; cursor: pointer;
+    font-size: .95rem; font-weight: 600; text-decoration: none;
+    transition: opacity .2s, transform .1s;
+}
+.btn:active { transform: scale(.98); }
+.btn-primary { background: #e94560; color: #fff; }
+.btn-secondary { background: #1a1a2e; color: #fff; }
+.btn-danger { background: #dc3545; color: #fff; }
+.btn-sm { padding: .35rem .8rem; font-size: .82rem; }
+.btn:hover { opacity: .88; }
+
+/* ── ALERTAS ── */
+.alert { padding: .75rem 1rem; border-radius: 7px; margin-bottom: 1rem; font-size: .9rem; }
+.alert-danger  { background: #fde8ec; color: #a31428; border: 1px solid #f5c0c8; }
+.alert-success { background: #e6f9f0; color: #1a6b40; border: 1px solid #b3ebd0; }
+
+/* ── TABELA ── */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+thead tr { background: #1a1a2e; color: #fff; }
+th, td { padding: .7rem 1rem; text-align: left; }
+tbody tr:nth-child(even) { background: #f8f9fa; }
+tbody tr:hover { background: #f0f2f5; }
+td .actions { display: flex; gap: .4rem; }
+
+/* ── LOGIN ── */
+.login-wrap {
+    min-height: 100vh; display: flex;
+    align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+}
+.login-box {
+    background: #fff; border-radius: 12px;
+    padding: 2.5rem; width: 100%; max-width: 400px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.3);
+}
+.login-box h1 { color: #1a1a2e; font-size: 1.5rem; margin-bottom: .4rem; }
+.login-box p  { color: #888; font-size: .875rem; margin-bottom: 1.5rem; }
+.login-box .logo-accent { color: #e94560; }
+
+/* ── BADGE ── */
+.badge {
+    display: inline-block; padding: .2rem .55rem;
+    border-radius: 20px; font-size: .78rem; font-weight: 600;
+}
+.badge-red { background: #fde8ec; color: #e94560; }
+
+/* ── EMPTY STATE ── */
+.empty { text-align: center; padding: 3rem 1rem; color: #aaa; }
+.empty span { font-size: 3rem; display: block; margin-bottom: .5rem; }

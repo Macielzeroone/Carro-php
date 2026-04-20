@@ -9,3 +9,4 @@ RUN chown -R www-data:www-data /var/www/html
 ENV PHP_DISPLAY_ERRORS=On
 
 EXPOSE 80
+
