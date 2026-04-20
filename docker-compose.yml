@@ -1,0 +1,41 @@
+services:
+  php-apache:
+    build: .
+    container_name: php_apache
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - minha-rede
+
+  mysql:
+    image: mysql:8.4.4
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: carros_db
+      MYSQL_USER: meu_usuario
+      MYSQL_PASSWORD: minha_senha
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - minha-rede
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-umeu_usuario", "-pminha_senha"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+
+networks:
+  minha-rede:
+
+volumes:
+  mysql_data:
